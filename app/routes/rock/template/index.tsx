@@ -10,7 +10,7 @@ export const Template = () => {
 
   return (
     <div>
-      <Top message={data.message} />
+      <Top message={data.message} users={data.users} />
       <hr />
       <Middle />
       <hr />
