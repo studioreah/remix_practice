@@ -19,7 +19,10 @@ export default function Index() {
       </div>
 
       <div>
-        <Link to='rock'>Nested Routesを試す</Link>
+        <Link to='/rock'>Nested Routesを試す</Link>
+      </div>
+      <div>
+        <Link to='/action'>Actionを試す</Link>
       </div>
     </div>
   )
