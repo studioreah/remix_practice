@@ -12,7 +12,7 @@ export const Bottom = () => {
           padding: '20px',
         }}
       >
-        <Link to='/rock' style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>
           Footer
         </Link>
       </div>

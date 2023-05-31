@@ -3,7 +3,7 @@ import { Outlet } from '@remix-run/react'
 import { Bottom } from './Bottom'
 import { Middle } from './Middle'
 import { Top } from './Top'
-import type { loader } from '../'
+import type { loader } from '..'
 
 export const Template = () => {
   const data = useLoaderData<typeof loader>()
