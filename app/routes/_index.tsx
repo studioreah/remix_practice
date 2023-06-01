@@ -116,7 +116,6 @@ export default function Index() {
             e.currentTarget.submit()
           }}
         >
-          <Text>なんか入力して</Text>
           <Flex gap={8} my={8}>
             <Label>
               <Input
