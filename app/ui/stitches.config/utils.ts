@@ -1,7 +1,7 @@
-import { Property } from '@stitches/react/types/css'
+import type { Property } from '@stitches/react/types/css'
 
-import { ColorToken } from './color'
-import { StyleThemeToken } from './style'
+import type { ColorToken } from './color'
+import type { StyleThemeToken } from './style'
 
 /**
  * @description
@@ -21,7 +21,9 @@ export const utils = {
   /** @alias background */
   bg: (value: Property.Background) => ({ background: value }),
   /** @alias backgroundColor */
-  bgc: (value: ColorToken | Property.BackgroundColor) => ({ backgroundColor: value }),
+  bgc: (value: ColorToken | Property.BackgroundColor) => ({
+    backgroundColor: value,
+  }),
   /** @alias backgroundSize */
   bgsz: (value: Property.BackgroundSize) => ({ backgroundSize: value }),
   /** @alias backgroundPosition */
@@ -43,13 +45,21 @@ export const utils = {
     paddingBottom: value,
   }),
   /** @alias paddingTop */
-  pt: (value: StyleThemeToken['spaces'] | Property.PaddingTop) => ({ paddingTop: value }),
+  pt: (value: StyleThemeToken['spaces'] | Property.PaddingTop) => ({
+    paddingTop: value,
+  }),
   /** @alias paddingBottom */
-  pb: (value: StyleThemeToken['spaces'] | Property.PaddingBottom) => ({ paddingBottom: value }),
+  pb: (value: StyleThemeToken['spaces'] | Property.PaddingBottom) => ({
+    paddingBottom: value,
+  }),
   /** @alias paddingLeft */
-  pl: (value: StyleThemeToken['spaces'] | Property.PaddingLeft) => ({ paddingLeft: value }),
+  pl: (value: StyleThemeToken['spaces'] | Property.PaddingLeft) => ({
+    paddingLeft: value,
+  }),
   /** @alias paddingRight */
-  pr: (value: StyleThemeToken['spaces'] | Property.PaddingRight) => ({ paddingRight: value }),
+  pr: (value: StyleThemeToken['spaces'] | Property.PaddingRight) => ({
+    paddingRight: value,
+  }),
   /** @alias margin */
   m: (value: StyleThemeToken['spaces'] | Property.Margin) => ({ margin: value }),
   /** @util marginLeftとmarginRightを同時に適用する */
@@ -63,13 +73,21 @@ export const utils = {
     marginBottom: value,
   }),
   /** @alias marginTop */
-  mt: (value: StyleThemeToken['spaces'] | Property.MarginTop) => ({ marginTop: value }),
+  mt: (value: StyleThemeToken['spaces'] | Property.MarginTop) => ({
+    marginTop: value,
+  }),
   /** @alias marginBottom */
-  mb: (value: StyleThemeToken['spaces'] | Property.MarginBottom) => ({ marginBottom: value }),
+  mb: (value: StyleThemeToken['spaces'] | Property.MarginBottom) => ({
+    marginBottom: value,
+  }),
   /** @alias marginLeft */
-  ml: (value: StyleThemeToken['spaces'] | Property.MarginLeft) => ({ marginLeft: value }),
+  ml: (value: StyleThemeToken['spaces'] | Property.MarginLeft) => ({
+    marginLeft: value,
+  }),
   /** @alias marginRight */
-  mr: (value: StyleThemeToken['spaces'] | Property.MarginRight) => ({ marginRight: value }),
+  mr: (value: StyleThemeToken['spaces'] | Property.MarginRight) => ({
+    marginRight: value,
+  }),
   /** @util 子要素の横間隔を指定 */
   spaceX: (value: StyleThemeToken['spaces'] | Property.MarginLeft) => ({
     '& > * + *': { marginLeft: value },
@@ -81,23 +99,37 @@ export const utils = {
   /** @alias width */
   w: (value: StyleThemeToken['sizes'] | Property.Width) => ({ width: value }),
   /** @alias minWidth */
-  miw: (value: StyleThemeToken['sizes'] | Property.MinWidth) => ({ minWidth: value }),
+  miw: (value: StyleThemeToken['sizes'] | Property.MinWidth) => ({
+    minWidth: value,
+  }),
   /** @alias maxWidth */
-  maw: (value: StyleThemeToken['sizes'] | Property.MaxWidth) => ({ maxWidth: value }),
+  maw: (value: StyleThemeToken['sizes'] | Property.MaxWidth) => ({
+    maxWidth: value,
+  }),
   /** @alias height */
   h: (value: StyleThemeToken['sizes'] | Property.Height) => ({ height: value }),
   /** @alias minHeight */
-  mih: (value: StyleThemeToken['sizes'] | Property.MinHeight) => ({ minHeight: value }),
+  mih: (value: StyleThemeToken['sizes'] | Property.MinHeight) => ({
+    minHeight: value,
+  }),
   /** @alias maxHeight */
-  mah: (value: StyleThemeToken['sizes'] | Property.MaxHeight) => ({ maxHeight: value }),
+  mah: (value: StyleThemeToken['sizes'] | Property.MaxHeight) => ({
+    maxHeight: value,
+  }),
   /** @alias border */
   b: (value: StyleThemeToken['radii'] | Property.Border) => ({ border: value }),
   /** @alias borderRadius 角丸の曲率半径 */
-  br: (value: StyleThemeToken['radii'] | Property.BorderRadius) => ({ borderRadius: value }),
+  br: (value: StyleThemeToken['radii'] | Property.BorderRadius) => ({
+    borderRadius: value,
+  }),
   /** @alias borderWidth ボーダーの太さ */
-  bw: (value: StyleThemeToken['borderWidths'] | Property.BorderWidth) => ({ borderWidth: value }),
+  bw: (value: StyleThemeToken['borderWidths'] | Property.BorderWidth) => ({
+    borderWidth: value,
+  }),
   /** @alias borderStyle ボーダーのスタイル */
-  bs: (value: StyleThemeToken['borderStyles'] | Property.BorderStyle) => ({ borderStyle: value }),
+  bs: (value: StyleThemeToken['borderStyles'] | Property.BorderStyle) => ({
+    borderStyle: value,
+  }),
   /** @alias borderColor ボーダーの色 */
   bc: (value: ColorToken | Property.Color) => ({ borderColor: value }),
   /** @alias color 文字の色 */
@@ -111,9 +143,13 @@ export const utils = {
   /** @alias textAlign 文字揃えの方向 */
   ta: (value: Property.TextAlign) => ({ textAlign: value }),
   /** @alias letterSpacing 文字同士の横の間隔 */
-  lts: (value: StyleThemeToken['letterSpacings'] | Property.LetterSpacing) => ({ letterSpacing: value }),
+  lts: (value: StyleThemeToken['letterSpacings'] | Property.LetterSpacing) => ({
+    letterSpacing: value,
+  }),
   /** @alias lineHeight 文字の行ボックスの高さ */
-  lh: (value: StyleThemeToken['lineHeights'] | Property.LineHeight) => ({ lineHeight: value }),
+  lh: (value: StyleThemeToken['lineHeights'] | Property.LineHeight) => ({
+    lineHeight: value,
+  }),
   /** @alias fontStile 文字スタイル italic, oblique など */
   fs: (value: Property.FontStyle) => ({ fontStyle: value }),
   /** @alias textTransform テキストの大文字/小文字変換 */
@@ -141,7 +177,9 @@ export const utils = {
   /** @alias placeSelf */
   ps: (value: Property.PlaceSelf) => ({ placeSelf: value }),
   /** @alias boxShadow */
-  shadow: (value: StyleThemeToken['shadows'] | Property.BoxShadow) => ({ boxShadow: value }),
+  shadow: (value: StyleThemeToken['shadows'] | Property.BoxShadow) => ({
+    boxShadow: value,
+  }),
   /** @util グリッドレイアウトを縦に何分割するか決める */
   cols: (value: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 'none') => ({
     gridTemplateColumns: value === 'none' ? 'none' : `repeat(${value}, 1fr)`,
@@ -151,7 +189,9 @@ export const utils = {
     gridTemplateRows: value === 'none' ? 'none' : `repeat(${value}, 1fr)`,
   }),
   /** @util グリッドの子要素がグリッド(横方向)を何ブロック占めるか指定する */
-  colSpan: (value: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 'auto' | 'full') => {
+  colSpan: (
+    value: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 'auto' | 'full'
+  ) => {
     if (value === 'auto') return { gridColumn: 'auto' }
     if (value === 'full') return { gridColumn: '1 / -1' }
 
@@ -169,7 +209,13 @@ export const utils = {
     variant = 'default',
     size = 'default',
   }: {
-    variant?: 'default' | 'secondary' | 'outline' | 'ghost' | 'destructive' | 'vanilla'
+    variant?:
+      | 'default'
+      | 'secondary'
+      | 'outline'
+      | 'ghost'
+      | 'destructive'
+      | 'vanilla'
     size?: 'default' | 'sm' | 'lg'
   }): any => {
     const commonStyle = {

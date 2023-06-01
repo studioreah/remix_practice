@@ -29,9 +29,7 @@ export const globalStyles = globalCss({
     fontWeight: '400',
     fontSize: '1rem',
     lineHeight: 1.55,
-  },
-  '*, *::before, *::after': {
-    boxSizing: 'border-box',
+    fontFamily: 'system-ui, sans-serif',
   },
   h1: {
     fontWeight: '700',
@@ -64,6 +62,8 @@ export const globalStyles = globalCss({
     lineHeight: 1.5,
   },
 })
+// HACK: 原因が謎だが、ここで実行するとSSRでもグローバルCSSが適用される
+globalStyles()
 
 export const lightTheme = createTheme('light-theme', {
   colors: lightThemePalette,
