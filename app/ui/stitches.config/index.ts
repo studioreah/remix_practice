@@ -4,6 +4,7 @@ import { darkThemePalette, lightThemePalette } from './color'
 import { mediaQueries } from './mediaQuery'
 import { styleTheme } from './style'
 import { utils } from './utils'
+import 'the-new-css-reset/css/reset.css'
 
 // cf https://stitches.dev/docs/api#createstitches
 const { styled, globalCss, keyframes, getCssText, theme, createTheme, config } =

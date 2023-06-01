@@ -26,7 +26,8 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
+        {/* TODO: ローカル環境のみ適用する */}
+        {true && <LiveReload port={8002} />}
       </body>
     </html>
   )

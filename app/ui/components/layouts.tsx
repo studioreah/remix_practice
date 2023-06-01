@@ -2,7 +2,7 @@
  * @description
  * 要素の配置やコンポーネントの骨組みを設計する基礎コンポーネント。
  */
-import { styled } from 'app/ui/stitches.config'
+import { styled } from '~/ui/stitches.config'
 import { variantCommon } from 'app/ui/variants'
 import { generateSpacingVariants } from 'app/ui/variants/generateVariants'
 

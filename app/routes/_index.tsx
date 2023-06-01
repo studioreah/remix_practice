@@ -16,12 +16,13 @@ export const action = async ({ request }: ActionArgs) => {
 
   return json({
     result: inputValue1,
+    status: 'ok',
   })
 }
 
 export default function Index() {
-  const [count, setCount] = useState(0)
   const data = useActionData<typeof action>()
+  const [count, setCount] = useState(0)
   const [input, setInput] = useState('')
 
   return (

@@ -6,7 +6,7 @@
 
 import type * as Stitches from '@stitches/react'
 
-import { theme } from 'app/ui/stitches.config'
+import { theme } from '~/ui/stitches.config'
 
 const COLOR_PATTERN = '$color'
 const COLOR_REGEX = /\"([^\"]*?\$color[^\"]*?)\"/
