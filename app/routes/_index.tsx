@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { V2_MetaFunction, LoaderArgs, ActionArgs } from '@remix-run/cloudflare'
+import type { V2_MetaFunction, ActionArgs } from '@remix-run/cloudflare'
 import { UserDomain } from 'server/domains/user'
 import { Button, Text, Box, Flex, Input, Label, Ul, Li } from 'app/ui'
 import { Outlet } from '@remix-run/react'
@@ -10,7 +10,7 @@ export const meta: V2_MetaFunction = () => {
   return [{ title: 'いぬ' }, { name: 'description', content: 'Welcome to Remix!' }]
 }
 
-export const loader = async ({}: LoaderArgs) => {
+export const loader = async () => {
   const userDomain = new UserDomain({ user: null })
 
   return json({
@@ -59,8 +59,18 @@ export default function Index() {
           loader
         </Text>
         <Box>
-          <Box>Members</Box>
-          <Box>
+          <Text fz='sm'>
+            ルーティングファイル内で loader
+            関数をエクスポートすると、SSR時にバックエンドで実行される処理を書くことができる。
+          </Text>
+          <Text fz='sm'>
+            下の例では、サーバーサイドのドメインロジックを用いてユーザー情報を取得し、それをクライアントにJSONで返している。
+          </Text>
+          <Text fz='sm'>
+            クライアントでは、 useLoaderData
+            というフックを用いて、loaderの戻り値を取得できる
+          </Text>
+          <Box mt='4'>
             <Box w='fit-content'>
               <Ul
                 css={{ borderBottom: 'solid 1px', d: 'flex', pb: '$1', mb: '$1' }}
@@ -88,6 +98,14 @@ export default function Index() {
       <Box>
         <Text as='h3' mt='8'>
           action
+        </Text>
+        <Text fz='sm'>
+          ルーティングファイル内で action
+          関数をエクスポートすると、PUT/POST/DELETEリクエスト実行時のバックエンドの処理を書くことができる。
+        </Text>
+        <Text fz='sm'>
+          クライアントでは、 useActionData
+          というフックを用いて、actionの戻り値を取得できる (デフォルトはnull)
         </Text>
         <Form
           method='post'
