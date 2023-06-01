@@ -26,7 +26,10 @@ export const Template = () => {
               Nested Routing
             </a>
             を使うと、URLのスラッグに応じたコンポーネントが
-            &lt;Outlet&gt;コンポーネントを通じてレンダリングされる
+            &lt;Outlet&gt;コンポーネントを通じてレンダリングされる。
+          </Text>
+          <Text fz='xs'>
+            Nested Routingの設計や管理はめっちゃ難しそうなので、濫用しない方がよさげ
           </Text>
           <Text fz='sm' mt='2'>
             また、ドット次の文字の先頭に $ をつけると (例 nested.$memeberId.tsx )
