@@ -1,13 +1,21 @@
 import { useState } from 'react'
-import type { V2_MetaFunction, ActionArgs } from '@remix-run/cloudflare'
-
-import { Button, Text, Box, Flex, Input, Label } from 'app/ui'
-
+import type { V2_MetaFunction, LoaderArgs, ActionArgs } from '@remix-run/cloudflare'
+import { UserDomain } from 'server/domains/user'
+import { Button, Text, Box, Flex, Input, Label, Ul, Li } from 'app/ui'
+import { Outlet } from '@remix-run/react'
 import { json } from '@remix-run/cloudflare'
-import { Link, Form, useActionData } from '@remix-run/react'
+import { Link, Form, useActionData, useLoaderData } from '@remix-run/react'
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: 'いぬ' }, { name: 'description', content: 'Welcome to Remix!' }]
+}
+
+export const loader = async ({}: LoaderArgs) => {
+  const userDomain = new UserDomain({ user: null })
+
+  return json({
+    users: await userDomain.getUsers(),
+  })
 }
 
 export const action = async ({ request }: ActionArgs) => {
@@ -21,32 +29,63 @@ export const action = async ({ request }: ActionArgs) => {
 }
 
 export default function Index() {
-  const data = useActionData<typeof action>()
-  const [count, setCount] = useState(0)
+  const data = useLoaderData<typeof loader>()
+  const actionData = useActionData<typeof action>()
   const [input, setInput] = useState('')
 
   return (
     <Box ff='sans' lh='md' p={4}>
       <Text as='h1'>Remix練習</Text>
 
-      <Flex gap={8} mt={8}>
-        <Text as='h3'>{count}</Text>
-        <Button variant='destructive' onClick={() => setCount(state => state + 1)}>
-          increment
-        </Button>
-      </Flex>
-
-      <Flex gap='8' mt='8'>
+      <Flex gap='6' mt='6'>
         <Box>
-          <Link to='/rock'>
-            <Text c='accentForeground' td='none'>
-              Nested Routesを試す
+          <Link to='/nested'>
+            <Text c='facebook' td='none'>
+              Nested Routingを試す
+            </Text>
+          </Link>
+        </Box>
+        <Box>
+          <Link to='/deep'>
+            <Text c='facebook' td='none'>
+              深層ページに進む
             </Text>
           </Link>
         </Box>
       </Flex>
 
-      <>
+      <Box>
+        <Text as='h3' mt='8'>
+          loader
+        </Text>
+        <Box>
+          <Box>Members</Box>
+          <Box>
+            <Box w='fit-content'>
+              <Ul
+                css={{ borderBottom: 'solid 1px', d: 'flex', pb: '$1', mb: '$1' }}
+              >
+                <Li w='16'>id</Li>
+                <Li w='32'>name</Li>
+                <Li w='32'>part</Li>
+              </Ul>
+            </Box>
+            {data?.users.map(({ id, name, part }) => {
+              return (
+                <Box key={id}>
+                  <Ul d='flex'>
+                    <Li w='16'>{id}</Li>
+                    <Li w='32'>{name}</Li>
+                    <Li w='32'>{part}</Li>
+                  </Ul>
+                </Box>
+              )
+            })}
+          </Box>
+        </Box>
+      </Box>
+
+      <Box>
         <Text as='h3' mt='8'>
           action
         </Text>
@@ -57,8 +96,6 @@ export default function Index() {
 
             e.preventDefault()
             e.currentTarget.submit()
-
-            console.log('送信しました')
           }}
         >
           <Text>なんか入力して</Text>
@@ -78,10 +115,11 @@ export default function Index() {
         <hr />
         お前が送信した値は{' '}
         <Text as='span' fw='bold'>
-          {data?.result}
+          {actionData?.result}
         </Text>{' '}
         です
-      </>
+      </Box>
+      <Outlet />
     </Box>
   )
 }

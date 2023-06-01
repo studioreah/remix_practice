@@ -1,17 +1,15 @@
 import { Template } from './template'
 import { json } from '@remix-run/cloudflare'
-import type { LoaderArgs } from '@remix-run/cloudflare'
 import { UserDomain } from 'server/domains/user'
 export const meta = () => [
-  { title: '青春でなにが悪い' },
-  { name: 'description', content: '青春でなにが悪い' },
+  { title: 'Nested Routing sample' },
+  { name: 'description', content: 'Nested Routing sample' },
 ]
 
-export const loader = async ({}: LoaderArgs) => {
+export const loader = async () => {
   const userDomain = new UserDomain({ user: null })
 
   return json({
-    message: 'ぼっちちゃんのロック、ぼっち・ざ・ろっく！',
     users: await userDomain.getUsers(),
   })
 }

@@ -1,8 +1,8 @@
 import { Template } from './template'
 
 export const meta = () => [
-  { title: 'new page' },
-  { name: 'description', content: 'new page' },
+  { title: 'more deep page' },
+  { name: 'description', content: 'more deep page' },
 ]
 
 export default Template
