@@ -1,7 +1,7 @@
 import type { ActionArgs } from '@remix-run/cloudflare'
 import { json } from '@remix-run/cloudflare'
 import { Link, Form, useActionData } from '@remix-run/react'
-
+import { Separator } from '~/ui'
 export const meta = () => [
   { title: 'action' },
   { name: 'description', content: 'action' },
@@ -39,7 +39,7 @@ export default function Action() {
           <button type='submit'>送信</button>
         </p>
       </Form>
-      <hr />
+      <Separator />
       お前が送信した値は {data?.result} です
     </>
   )

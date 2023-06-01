@@ -9,13 +9,18 @@ import {
   ScrollRestoration,
 } from '@remix-run/react'
 
+import { initialTheme } from 'app/core/theme'
+import { globalStyles } from 'app/ui'
+
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ]
 
+globalStyles()
+
 export default function App() {
   return (
-    <html lang='ja'>
+    <html lang='ja' className={initialTheme}>
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width,initial-scale=1' />
@@ -26,7 +31,8 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
+        {/* 開発環境のみ有効にする */}
+        {true && <LiveReload />}
       </body>
     </html>
   )

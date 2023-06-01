@@ -4,6 +4,7 @@ import { Bottom } from './Bottom'
 import { Middle } from './Middle'
 import { Top } from './Top'
 import type { loader } from '..'
+import { Separator } from '~/ui'
 
 export const Template = () => {
   const data = useLoaderData<typeof loader>()
@@ -11,9 +12,9 @@ export const Template = () => {
   return (
     <div>
       <Top message={data.message} users={data.users} />
-      <hr />
+      <Separator my={8} />
       <Middle />
-      <hr />
+      <Separator my={8} />
       <Outlet />
       <Bottom />
     </div>

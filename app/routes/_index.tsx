@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { V2_MetaFunction } from '@remix-run/cloudflare'
 import { Link } from '@remix-run/react'
+import { Button } from '~/ui'
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: 'いぬ' }, { name: 'description', content: 'Welcome to Remix!' }]
@@ -15,7 +16,15 @@ export default function Index() {
 
       <div>
         <div>{count}</div>
-        <button onClick={() => setCount(state => state + 1)}>increment</button>
+        <Button
+          css={{
+            my: '$4',
+          }}
+          variant='destructive'
+          onClick={() => setCount(state => state + 1)}
+        >
+          increment
+        </Button>
       </div>
 
       <div>
