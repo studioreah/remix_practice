@@ -1,4 +1,4 @@
-name = "remix-cloudflare-workers"
+name = "ijichinijika"
 
 workers_dev = true
 main = "./build/index.js"
@@ -11,4 +11,3 @@ compatibility_flags = ["streams_enable_constructors"]
 
 [build]
   command = "npm run build"
-
