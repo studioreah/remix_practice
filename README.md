@@ -1,3 +1,9 @@
+これ
+
+https://ijichinijika.shimahi.workers.dev/
+
+
+
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)
